@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
+// GetStudent component gets all the students from the database
 const GetStudent = () => {
+  // useState hook to set the state of the students data
   const [students, setStudents] = useState([]);
 
+  // getStudents function that attempts to get all the students from the database
   const getStudents = async () => {
     try {
       const response = await fetch('http://localhost:3000/students');
@@ -13,13 +16,15 @@ const GetStudent = () => {
     }
   };
 
+// useEffect hook to get all the students from the database
   useEffect(() => {
     getStudents();
   }, []);
 
 
 
-
+  // return the GetStudent component
+  // a table that displays all the students in the database
   return (
     <>
       <div className="container mx-auto ">

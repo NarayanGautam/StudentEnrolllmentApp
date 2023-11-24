@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 
+// DeleteStudent component gets a student id and deletes that student record from the database
 const DeleteStudent = () => {
+  // useState hook to set the state of the student id
   const [id, setStudentId] = useState('');
 
+  // deleteStudent function that attempts to delete a student record given the id
   const deleteStudent = async (e) => {
     e.preventDefault();
     try {
@@ -13,12 +16,15 @@ const DeleteStudent = () => {
         body: JSON.stringify(body),
       });
       console.log(response);
+      // reset the form
       setStudentId('');
     } catch (error) {
       console.error(error.message);
     }
   };
 
+  // return the DeleteStudent component
+  // a form that gets the student id
   return (
     <>
       <div className="container mx-auto ">

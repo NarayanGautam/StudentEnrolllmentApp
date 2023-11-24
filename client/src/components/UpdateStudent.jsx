@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 
+// UpdateStudent component gets the student id and updates the email address 
 const UpdateStudent = () => {
 
+  // useState hook to set the state of the student id and email
   const [student_id, setStudentId] = useState('')
   const [email, setEmail] = useState('')
 
+  // updateStudent function that attempts to update the email address of a student given the student id
   const updateStudent = async (e) => {
     e.preventDefault()
     try {
@@ -15,6 +18,7 @@ const UpdateStudent = () => {
         body: JSON.stringify(body),
       })
       console.log(response);
+      // resets the form
       setStudentId('')
       setEmail('')
     } catch (error) {
@@ -22,7 +26,7 @@ const UpdateStudent = () => {
     }
   }
 
-
+  // return the UpdateStudent component which takes in student id and email
   return (
     <>
       <div className="container mx-auto ">

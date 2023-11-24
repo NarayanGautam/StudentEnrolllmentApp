@@ -1,5 +1,6 @@
 import React from 'react'
 
+// Home component explains the application functionality
 const Home = () => {
   return (
     <>

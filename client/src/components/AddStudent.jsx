@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 
+// AddStudent component gets student info which gets sent to the server and added to the database
 const AddStudent = () => {
+    // useState hook to set the state of the student info
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [enrollmentDate, setEnrollmentDate] = useState('');
 
+    // addStudent function to send the student info to the server
     const addStudent = async (e) => {
         e.preventDefault();
+        // try to post the student info to the server
         try {
             const body = { firstName, lastName, email, enrollmentDate };
             const response = await fetch('http://localhost:3000/students', {
@@ -16,6 +20,7 @@ const AddStudent = () => {
                 body: JSON.stringify(body),
             });
             console.log(response);
+            // reset the form
             setFirstName('');
             setLastName('');
             setEmail('');
@@ -25,7 +30,8 @@ const AddStudent = () => {
         }
     };
 
-
+    // return the AddStudent component
+    // it is a simple form to get the student info
     return (
         <>
             <div className="container mx-auto ">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Navigation component that displays a navigation bar on the top of the page
 function Navigation() {
   return (
     <nav className="px-16 py-8 flex justify-center">

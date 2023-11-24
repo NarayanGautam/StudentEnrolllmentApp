@@ -8,6 +8,8 @@ import UpdateStudent from './components/UpdateStudent';
 import DeleteStudent from './components/DeleteStudent';
 
 function App() {
+  // return the App component
+  // React Router to route to the different components in separate pages
   return (
     <>
       <BrowserRouter>
