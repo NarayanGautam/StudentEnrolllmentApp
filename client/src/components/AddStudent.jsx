@@ -28,7 +28,6 @@ const AddStudent = () => {
 
     return (
         <>
-
             <div className="container mx-auto ">
                 <h1 className="text-center font-medium text-2xl">
                     Add Student
