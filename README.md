@@ -3,6 +3,9 @@ Shuva Gautam - 101223315
 
 Friday, November 23, 2023
 
+## Youtube Video Link
+https://www.youtube.com/watch?v=6kYK8qeL_yI
+
 ## How to run the program
 ## Step 1: Setup the database in PostgreSQL
 Create the Enrollments database in PostgreSQL by running the following commands in psql or pgAdmin4
