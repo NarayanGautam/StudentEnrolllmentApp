@@ -16,6 +16,10 @@ const AddStudent = () => {
                 body: JSON.stringify(body),
             });
             console.log(response);
+            setFirstName('');
+            setLastName('');
+            setEmail('');
+            setEnrollmentDate('');
         } catch (error) {
             console.error(error.message);
         }
@@ -65,7 +69,7 @@ const AddStudent = () => {
                     />
                     <label htmlFor="enrollmentDate">Enrollment Date:</label>
                     <input
-                        type="text"
+                        type="date"
                         name="enrollmentDate"
                         id="enrollmentDate"
                         className="border border-gray-400 px-4 py-2 my-2"
@@ -73,7 +77,7 @@ const AddStudent = () => {
                         autoComplete="on"
                         onChange={(e) => setEnrollmentDate(e.target.value)}
                     />
-                    <button className='bg-blue-500 text-white px-3 py-2 w-fit'>
+                    <button className='bg-blue-500 text-white px-3 py-2 w-fit hover:bg-blue-700'>
                         Add Student
                     </button>
                 </form>

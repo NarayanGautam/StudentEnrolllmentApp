@@ -54,12 +54,12 @@ app.put('/students/:id', async(req, res) => {
 });
 
 // delete a student
-app.delete('/students/:id', async(req, res) => {
+app.delete('/students/:id', async (req, res) => {
     try {
-        const { student_id } = req.params;
+        const { id } = req.params;
         const deleteStudent = await pool.query(
             'delete from Students where student_id = $1',
-            [student_id]
+            [id]
         );
         res.json('Student was deleted');
     } catch (err) {

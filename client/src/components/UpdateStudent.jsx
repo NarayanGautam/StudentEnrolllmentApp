@@ -14,7 +14,9 @@ const UpdateStudent = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       })
-      console.log(response)
+      console.log(response);
+      setStudentId('')
+      setEmail('')
     } catch (error) {
       console.error(error.message)
     }
@@ -51,7 +53,7 @@ const UpdateStudent = () => {
             autoComplete='on'
             onChange={(e) => setEmail(e.target.value)}
           />
-          <button className='bg-blue-500 text-white px-3 py-2 w-fit'>
+          <button className='bg-blue-500 text-white px-3 py-2 w-fit hover:bg-blue-700'>
             Update Student
           </button>
         </form>
