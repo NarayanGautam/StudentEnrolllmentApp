@@ -1,63 +1,86 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 const AddStudent = () => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [enrollmentDate, setEnrollmentDate] = useState('');
+
+    const addStudent = async (e) => {
+        e.preventDefault();
+        try {
+            const body = { firstName, lastName, email, enrollmentDate };
+            const response = await fetch('http://localhost:3000/students', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body),
+            });
+            console.log(response);
+        } catch (error) {
+            console.error(error.message);
+        }
+    };
+
+
     return (
-        <>           
-            <form>
-                <div className='space-y-2 flex flex-col m-10'>
-                    <h1 className='text-3xl'>Add Student</h1>
-                    <div className='flex flex-col'>
-                        <label htmlFor='firstName'>First Name</label>
-                        <input
-                            id='firstName'
-                            type='text'
-                            className='border border-gray-300 px-3 py-2 w-fit'
-                        />
-                    </div>
-                    <div className='flex flex-col'>
-                        <label htmlFor='lastName'>Last Name</label>
-                        <input
-                            id='lastName'
-                            type='text'
-                            className='border border-gray-300 px-3 py-2 w-fit'
-                        />
-                    </div>
-                    <div className='flex flex-col'>
-                        <label htmlFor='email'>Email</label>
-                        <input
-                            id='email'
-                            type='email'
-                            className='border border-gray-300 px-3 py-2 w-fit'
-                        />
-                    </div>
-                    <div className='flex flex-col'>
-                        <label htmlFor='enrollmentDate'>Enrollment Date</label>
-                        <input
-                            id='enrollmentDate'
-                            type='date'
-                            className='border border-gray-300 px-3 py-2 w-fit'
-                        />
-                    </div>
-                    <div>
-                        <button className='bg-blue-500 text-white px-3 py-2 w-fit'>
+        <>
+
+            <div className="container mx-auto ">
+                <h1 className="text-center font-medium text-2xl">
+                    Add Student
+                </h1>
+                <p className="text-center">
+                    You can add a student here:
+                </p>
+                <form onSubmit={addStudent} className="flex flex-col mx-auto my-8 w-1/3">
+                    <label htmlFor="firstName">First Name:</label>
+                    <input
+                        type="text"
+                        name="firstName"
+                        id="firstName"
+                        className="border border-gray-400 px-4 py-2 my-2"
+                        value={firstName}
+                        autoComplete="on"
+                        onChange={(e) => setFirstName(e.target.value)}
+                    />
+                    <label htmlFor="lastName">Last Name:</label>
+                    <input
+                        type="text"
+                        name="lastName"
+                        id="lastName"
+                        className="border border-gray-400 px-4 py-2 my-2"
+                        value={lastName}
+                        autoComplete="on"
+                        onChange={(e) => setLastName(e.target.value)}
+                    />
+                    <label htmlFor="email">Email:</label>
+                    <input
+                        type="text"
+                        name="email"
+                        id="email"
+                        className="border border-gray-400 px-4 py-2 my-2"
+                        value={email}
+                        autoComplete="on"
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <label htmlFor="enrollmentDate">Enrollment Date:</label>
+                    <input
+                        type="text"
+                        name="enrollmentDate"
+                        id="enrollmentDate"
+                        className="border border-gray-400 px-4 py-2 my-2"
+                        value={enrollmentDate}
+                        autoComplete="on"
+                        onChange={(e) => setEnrollmentDate(e.target.value)}
+                    />
+                    <button className='bg-blue-500 text-white px-3 py-2 w-fit'>
                         Add Student
                     </button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
+        </>          
+    );
+};
 
+export default AddStudent;
 
-
-
-            
-            
-
-
-            
-        </>
-
-
-    )
-}
-
-export default AddStudent

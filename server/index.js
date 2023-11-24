@@ -16,10 +16,11 @@ app.get('/', (req, res) => {
 // add a student
 app.post('/students', async(req, res) => {
     try {
-        const { first_name, last_name, email, enrollment_date } = req.body;
+        console.log(req.body);
+        const { firstName, lastName, email, enrollmentDate } = req.body;
         const newStudent = await pool.query(
             'insert into Students (first_name, last_name, email, enrollment_date) values ($1, $2, $3, $4) returning *',
-            [first_name, last_name, email, enrollment_date]
+            [firstName, lastName, email, enrollmentDate]
         );
         res.json(newStudent.rows[0]);
     } catch (err) {
@@ -65,6 +66,7 @@ app.delete('/students/:id', async(req, res) => {
         console.error(err.message);
     }
 });
+
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
