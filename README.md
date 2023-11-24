@@ -28,7 +28,7 @@ insert into students (first_name, last_name, email, enrollment_date) values
 ```
 
 ## Step 2: Setup and Run the program
-Clone the repository or download it. 
+Clone the repository or download it. The repo can be found at https://github.com/NarayanGautam/StudentEnrolllmentApp
 
 cd into the client folder and run the following commands to download the dependencies and run the client side of the program
 ```bash

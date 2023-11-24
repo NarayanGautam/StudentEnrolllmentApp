@@ -16,4 +16,16 @@ insert into students (first_name, last_name, email, enrollment_date) values
 ('Jane', 'Smith', 'jane.smith@example.com', '2023-09-01'),
 ('Jim', 'Beam', 'jim.beam@example.com', '2023-09-02');
 
+-- other useful sql queries for testing
+
 select * from students;
+
+delete from students;
+
+-- reset the serial id
+alter sequence students_student_id_seq restart with 1;
+
+drop table students;
+
+
+
