@@ -1,5 +1,5 @@
 -- create our database
-create database Enrollment;
+create database enrollment;
 
 -- create students table
 create table Students (
@@ -19,6 +19,8 @@ insert into students (first_name, last_name, email, enrollment_date) values
 -- other useful sql queries for testing
 
 select * from students;
+
+drop database Enrollment;
 
 delete from students;
 
